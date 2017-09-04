@@ -22,7 +22,7 @@ var projects = {
 			title: "TPO Automation Project - Python based Desktop Application",
 			dates: "Jan 2016 – Feb 2016",
 			description: "Developed GUI for the desktop App using wxPython",
-			images: []
+			images: ["images/TPC1.jpg", "images/TPC2.jpg", "images/TPC4.jpg"]
 		}
 	]
 };
@@ -31,12 +31,12 @@ var bio = {
 	name: "Ayush Aman",
 	role: "App and Web developer",
 	contact: {
-		phone: "+91 7052469479",
+		mobile: "+91 7052469479",
 	 	email: "aayushamann@gmail.com",
 	 	github: "aayushamann",
-	 	location: "Lucnow, UP, India"
+	 	location: "Lucknow, Uttar Pradesh, India"
 	},
-	biopic: "images/fry.jpg",
+	biopic: "images/Ayush.jpg",
 	welcomeMessage: "Welcome",
 	skills: ["HTML", "CSS", "JavaScript", "PHP", "Android", "Python"]
 };
@@ -48,7 +48,7 @@ var education = {
 			location: "DLW, Varanasi, UP, India",
 			degree: "High School",
 			dates: "2010 - 2011",
-			urlStrings: "", 
+			url: "", 
 			majors: ["Computer Science", "Science", "Maths"]
 		},
 		{
@@ -80,8 +80,10 @@ var education = {
 
 var formattedName = HTMLheaderName.replace("%data%", bio.name);
 var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
 $("#header").prepend(formattedRole);
 $("#header").prepend(formattedName);
+$("#header").append(formattedBioPic);
 
 if(bio.skills.length > 0) {
 	$('#header').append(HTMLskillsStart);
@@ -94,6 +96,16 @@ if(bio.skills.length > 0) {
 		$('#skills').append(formattedSkill);
 	}
 }
+
+var formattedMobile = HTMLmobile.replace("%data%", bio.contact.mobile);
+var formattedEmail = HTMLemail.replace("%data%", bio.contact.email);
+var formattedGithub = HTMLgithub.replace("%data%", bio.contact.github);
+var formattedLocation = HTMLlocation.replace("%data%", bio.contact.location);
+$("#topContacts").append(formattedMobile);
+$("#topContacts").append(formattedEmail);
+$("#topContacts").append(formattedGithub);
+$("#topContacts").append(formattedLocation);
+
 
 function displayWork() {
 	for(var i = 0; i < work.jobs.length; i++) {
@@ -112,21 +124,14 @@ if(work.jobs.length > 0) {
 	displayWork();
 }
 
-$(document).click(function(loc) {
-  // your code goes here
-  var x = loc.pageX;
-  var y = loc.pageY;
-  logClicks(x, y);
-});
+// $('#main').append(internationalizeButton);
 
-$('#main').append(internationalizeButton);
-
-function inName(name) {
-	name = name.trim().split(" ");
-	name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
-	name[1] = name[1].toUpperCase();
-	return name[0] + " " + name[1];
-}
+// function inName(name) {
+// 	name = name.trim().split(" ");
+// 	name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
+// 	name[1] = name[1].toUpperCase();
+// 	return name[0] + " " + name[1];
+// }
 
 projects.display = function() {
 	for(project in projects.projects) {
@@ -150,4 +155,23 @@ projects.display = function() {
 	}
 }
 
+education.display = function() {
+	for(school in education.schools) {
+		$('#education').append(HTMLschoolStart);
+
+		var formattedName = HTMLschoolName.replace("%data%", education.schools[school].name);
+		var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
+		var formattedDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
+		var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
+		var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[school].majors);
+
+		$('.education-entry:last').append(formattedName);
+		$('.education-entry:last').append(formattedDegree);
+		$('.education-entry:last').append(formattedDates);
+		$('.education-entry:last').append(formattedLocation);
+		$('.education-entry:last').append(formattedMajor);
+	}
+}
+
 projects.display();
+education.display();
