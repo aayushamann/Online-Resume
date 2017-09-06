@@ -1,11 +1,11 @@
 var work = {
 	jobs: [
 		// {
-		// 	employer: "Facebook",
-		// 	title: "Software Developer",
-		// 	location: "Paulo Alto, CA",
-		// 	dates: "2017 - Present",
-		// 	description: "wsegfvhj"
+		// 	employer: "",
+		// 	title: "",
+		// 	location: "",
+		// 	dates: "",
+		// 	description: ""
 		// }
 	]
 };
@@ -15,22 +15,34 @@ var projects = {
 		{
 			title: "Anubhuti",
 			dates: "Dec 2016 - Feb 2017",
-			description: "Developer of the official Android App for the cultural fest 'Anubhuti' of Kamla Nehru Institute of Technology, Sultanpur, UP, India.",
+			description: "Developer of the official Android App for the cultural fest 'Anubhuti' of Kamla " +
+			"<br>- The app targetted Phone devices with Android Kitkat 4.4 and above." +
+			"<br>- The app was linked to the website of Anubhuti where a centralized database was maintained." +
+			"<br>- Facebook API used for the login feature." +
+			"<br>- Google Firebase API used for the real-time notification feature." +
+			"<br>- Google Map API used for the Map." +
+			"<br>- Call, messaging, and e-mail feature for easy communication.",
 			images: ["images/Anbti1.png", "images/Anbti2.png", "images/Anbti3.png", "images/Anbti4.png"]
 		},
 		{
 			title: "TPO Automation Project - Python based Desktop Application",
 			dates: "Jan 2016 – Feb 2016",
-			description: "Developed GUI for the desktop App using wxPython",
-			images: ["images/TPC1.jpg", "images/TPC2.jpg", "images/TPC4.jpg"]
+			description: "Developed GUI for the desktop App using wxPython." +
+			"Nehru Institute of Technology, Sultanpur, UP, India. Objective was to automate tasks related " +
+			"to Training and Placement Cell i.e. Database Management and Message Broadcasting through SMS and mails." + 
+			"<br>- Used Python for the overall development of the application." +
+			"<br>- Used wxPython for the development of Graphical User Interface (GUI)." + 
+			"<br>- The application interface is Dynamic and Multi-panel for easy operation.",
+			images: ["images/TPC1.jpg", "images/TPC2.jpg", "images/TPC4.jpg"],
+			url: "https://github.com/aayushamann/Anubhuti"
 		}
 	]
 };
 
 var bio = {
 	name: "Ayush Aman",
-	role: "App and Web developer",
-	contact: {
+	role: "Undergraduate",
+	contacts: {
 		mobile: "+91 7052469479",
 	 	email: "aayushamann@gmail.com",
 	 	github: "aayushamann",
@@ -38,7 +50,7 @@ var bio = {
 	},
 	biopic: "images/Ayush.jpg",
 	welcomeMessage: "Welcome",
-	skills: ["HTML", "CSS", "JavaScript", "PHP", "Android", "Python"]
+	skills: ["Android", "Python", "Java", "HTML", "CSS", "JavaScript", "PHP", "wxPython"]
 };
 
 var education = {
@@ -99,10 +111,10 @@ if(bio.skills.length > 0) {
 	}
 }
 
-var formattedMobile = HTMLmobile.replace("%data%", bio.contact.mobile);
-var formattedEmail = HTMLemail.replace("%data%", bio.contact.email);
-var formattedGithub = HTMLgithub.replace("%data%", bio.contact.github);
-var formattedLocation = HTMLlocation.replace("%data%", bio.contact.location);
+var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
 $("#topContacts").append(formattedMobile);
 $("#topContacts").append(formattedEmail);
 $("#topContacts").append(formattedGithub);
