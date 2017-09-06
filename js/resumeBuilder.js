@@ -16,7 +16,7 @@ var projects = {
 			title: "Anubhuti",
 			dates: "Dec 2016 - Feb 2017",
 			description: "Developer of the official Android App for the cultural fest 'Anubhuti' of Kamla Nehru Institute of Technology, Sultanpur, UP, India.",
-			images: []
+			images: ["images/Anbti1.png", "images/Anbti2.png", "images/Anbti3.png", "images/Anbti4.png"]
 		},
 		{
 			title: "TPO Automation Project - Python based Desktop Application",
@@ -78,6 +78,8 @@ var education = {
 	]
 };
 
+$('#mapDiv').append(googleMap);
+
 var formattedName = HTMLheaderName.replace("%data%", bio.name);
 var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
@@ -105,6 +107,11 @@ $("#topContacts").append(formattedMobile);
 $("#topContacts").append(formattedEmail);
 $("#topContacts").append(formattedGithub);
 $("#topContacts").append(formattedLocation);
+
+$("#footerContacts").append(formattedMobile);
+$("#footerContacts").append(formattedEmail);
+$("#footerContacts").append(formattedGithub);
+$("#footerContacts").append(formattedLocation);
 
 
 function displayWork() {
@@ -175,3 +182,4 @@ education.display = function() {
 
 projects.display();
 education.display();
+
